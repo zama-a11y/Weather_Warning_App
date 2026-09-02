@@ -12,7 +12,8 @@ import {
   ShieldAlert,
   Wind,
 } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { Map as LeafletMap, Marker } from 'leaflet';
 import branchesCsv from '../avis_south_africa_branches_weather_monitoring.csv?raw';
 
 type RiskLevel = 'critical' | 'high' | 'watch' | 'clear';
@@ -183,18 +184,6 @@ function enrichBranch(branch: Branch): BranchWeather {
   };
 }
 
-function markerPosition(branch: Branch) {
-  const lonMin = 16.4;
-  const lonMax = 33.2;
-  const latMin = -35.2;
-  const latMax = -22.0;
-
-  return {
-    left: `${((branch.longitude - lonMin) / (lonMax - lonMin)) * 100}%`,
-    top: `${((latMax - branch.latitude) / (latMax - latMin)) * 100}%`,
-  };
-}
-
 function WeatherIcon({ hazard }: { hazard: string }) {
   const normalized = hazard.toLowerCase();
 
@@ -207,6 +196,144 @@ function WeatherIcon({ hazard }: { hazard: string }) {
 }
 
 const allBranches = parseBranches(branchesCsv).map(enrichBranch);
+
+function InteractiveBranchMap({
+  branches,
+  selectedId,
+  onSelect,
+}: {
+  branches: BranchWeather[];
+  selectedId: string;
+  onSelect: (id: string) => void;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<LeafletMap | null>(null);
+  const markersRef = useRef<Marker[]>([]);
+  const [mapReady, setMapReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function createMap() {
+      if (!containerRef.current || mapRef.current) return;
+
+      const L = await import('leaflet');
+
+      if (cancelled || !containerRef.current) return;
+
+      const map = L.map(containerRef.current, {
+        center: [-29.0, 24.5],
+        zoom: 5,
+        minZoom: 5,
+        maxZoom: 18,
+        scrollWheelZoom: true,
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+      }).addTo(map);
+
+      mapRef.current = map;
+      setMapReady(true);
+    }
+
+    void createMap();
+
+    return () => {
+      cancelled = true;
+      mapRef.current?.remove();
+      mapRef.current = null;
+      markersRef.current = [];
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function renderMarkers() {
+      const map = mapRef.current;
+      if (!map || !mapReady) return;
+
+      const L = await import('leaflet');
+      if (cancelled) return;
+
+      for (const marker of markersRef.current) {
+        marker.remove();
+      }
+
+      markersRef.current = branches.map((branch) => {
+        const marker = L.marker([branch.latitude, branch.longitude], {
+          icon: L.divIcon({
+            className: '',
+            html: `<span class="branch-marker branch-marker--${branch.risk} ${
+              branch.id === selectedId ? 'branch-marker--selected' : ''
+            }"></span>`,
+            iconSize: [18, 18],
+            iconAnchor: [9, 9],
+          }),
+        })
+          .addTo(map)
+          .bindTooltip(branch.name, {
+            direction: 'top',
+            offset: [0, -10],
+            opacity: 0.95,
+          })
+          .on('click', () => onSelect(branch.id));
+
+        return marker;
+      });
+
+      if (branches.length > 0) {
+        const bounds = L.latLngBounds(
+          branches.map((branch) => [branch.latitude, branch.longitude]),
+        );
+        map.fitBounds(bounds, { padding: [28, 28], maxZoom: 11 });
+      }
+    }
+
+    void renderMarkers();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [branches, mapReady, onSelect, selectedId]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function focusSelectedBranch() {
+      const selected = branches.find((branch) => branch.id === selectedId);
+      const map = mapRef.current;
+
+      if (!selected || !map) return;
+
+      const L = await import('leaflet');
+      if (cancelled) return;
+
+      map.flyTo(
+        L.latLng(selected.latitude, selected.longitude),
+        Math.max(map.getZoom(), 11),
+        { duration: 0.45 },
+      );
+    }
+
+    void focusSelectedBranch();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [branches, selectedId]);
+
+  return (
+    <div
+      ref={containerRef}
+      aria-label="Interactive branch map"
+      className="h-full min-h-[520px] w-full rounded-lg"
+    />
+  );
+}
 
 export default function Home() {
   const [selectedId, setSelectedId] = useState(allBranches[0]?.id ?? '');
@@ -243,6 +370,10 @@ export default function Home() {
   const activeAlerts = allBranches.filter((branch) => branch.risk !== 'clear');
   const exactBranches = allBranches.filter((branch) => branch.verified);
   const criticalBranches = allBranches.filter((branch) => branch.risk === 'critical');
+
+  const handleBranchSelect = useCallback((id: string) => {
+    setSelectedId(id);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#f5f7fa] text-slate-950">
@@ -367,7 +498,7 @@ export default function Home() {
               <div>
                 <h2 className="text-lg font-semibold">Branch Map</h2>
                 <p className="text-sm text-slate-500">
-                  Branch markers are plotted from the CSV coordinates.
+                  Pan, zoom and click a marker to inspect a branch.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 text-xs text-slate-500">
@@ -382,38 +513,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-[520px] overflow-hidden rounded-lg border border-slate-200 bg-[#edf4f5]">
-              <svg
-                viewBox="0 0 640 520"
-                aria-hidden="true"
-                className="absolute inset-0 h-full w-full"
-              >
-                <rect width="640" height="520" fill="#edf4f5" />
-                <path
-                  d="M83 316 121 270 169 245 203 198 258 184 307 147 362 153 401 127 461 147 517 203 559 260 574 332 548 383 494 409 451 459 378 474 315 451 251 466 190 428 137 402Z"
-                  fill="#d6e5df"
-                  stroke="#9db5b3"
-                  strokeWidth="2"
-                />
-              </svg>
-
-              {filteredBranches.map((branch) => {
-                const position = markerPosition(branch);
-
-                return (
-                  <button
-                    key={branch.id}
-                    type="button"
-                    aria-label={`Select ${branch.name}`}
-                    onClick={() => setSelectedId(branch.id)}
-                    className={`absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full ring-4 transition hover:scale-150 focus:scale-150 focus:outline-none ${
-                      dotClasses[branch.risk]
-                    } ${selected?.id === branch.id ? 'scale-150 ring-slate-300' : ''}`}
-                    style={position}
-                    title={branch.name}
-                  />
-                );
-              })}
+            <div className="h-[520px] overflow-hidden rounded-lg border border-slate-200 bg-slate-100">
+              <InteractiveBranchMap
+                branches={filteredBranches}
+                selectedId={selected?.id ?? ''}
+                onSelect={handleBranchSelect}
+              />
             </div>
           </div>
 

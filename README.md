@@ -14,8 +14,9 @@ The dashboard currently includes:
 
 - City-level risk status cards
 - Branch-level risk status
-- A clean map-style operations view with one marker per branch
+- An interactive OpenStreetMap view with pan, zoom, street names and one marker per branch
 - Branch search and filters by province and risk
+- Clickable map markers synced with the selected branch panel
 - Sample warnings for hail, strong wind, heavy rain, snow and other damaging weather
 - Lead-time windows such as `42 min`, `1 hr 15 min`, and `3 hr 20 min`
 - Email recipient routing for each branch's Branch Managers and the Risk team

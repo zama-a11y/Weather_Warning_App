@@ -142,6 +142,271 @@ button {
   cursor: pointer;
 }
 
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.leaflet-container {
+  background: #e2e8f0;
+  font-family: var(--font-app-sans);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.leaflet-container img,
+.leaflet-container .leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.leaflet-tile {
+  visibility: hidden;
+}
+
+.leaflet-tile-loaded {
+  visibility: inherit;
+}
+
+.leaflet-pane {
+  z-index: 400;
+}
+
+.leaflet-tile-pane {
+  z-index: 200;
+}
+
+.leaflet-overlay-pane {
+  z-index: 400;
+}
+
+.leaflet-shadow-pane {
+  z-index: 500;
+}
+
+.leaflet-marker-pane {
+  z-index: 600;
+}
+
+.leaflet-tooltip-pane {
+  z-index: 650;
+}
+
+.leaflet-popup-pane {
+  z-index: 700;
+}
+
+.leaflet-control {
+  position: relative;
+  z-index: 800;
+  pointer-events: auto;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.leaflet-top {
+  top: 0;
+}
+
+.leaflet-right {
+  right: 0;
+}
+
+.leaflet-bottom {
+  bottom: 0;
+}
+
+.leaflet-left {
+  left: 0;
+}
+
+.leaflet-control {
+  float: left;
+  clear: both;
+}
+
+.leaflet-right .leaflet-control {
+  float: right;
+}
+
+.leaflet-top .leaflet-control {
+  margin-top: 10px;
+}
+
+.leaflet-bottom .leaflet-control {
+  margin-bottom: 10px;
+}
+
+.leaflet-left .leaflet-control {
+  margin-left: 10px;
+}
+
+.leaflet-right .leaflet-control {
+  margin-right: 10px;
+}
+
+.leaflet-grab {
+  cursor: grab;
+}
+
+.leaflet-dragging .leaflet-grab {
+  cursor: grabbing;
+}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+  pointer-events: none;
+}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive {
+  pointer-events: auto;
+}
+
+.leaflet-bar {
+  border: 1px solid rgb(148 163 184 / 60%);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 16%);
+}
+
+.leaflet-bar a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-bottom: 1px solid rgb(203 213 225);
+  background-color: white;
+  color: #0f172a;
+  font: bold 18px/30px var(--font-app-mono);
+  text-align: center;
+  text-decoration: none;
+}
+
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+  background-color: #f8fafc;
+}
+
+.leaflet-bar a:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.leaflet-bar a:last-child {
+  border-bottom: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.leaflet-bar a.leaflet-disabled {
+  cursor: default;
+  color: #94a3b8;
+  background-color: #f8fafc;
+}
+
+.leaflet-control-attribution {
+  margin: 0;
+  padding: 2px 6px;
+  background: rgb(255 255 255 / 82%);
+  color: #475569;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.leaflet-control-attribution a {
+  color: #0369a1;
+  text-decoration: none;
+}
+
+.leaflet-tooltip {
+  position: absolute;
+  padding: 5px 8px;
+  border: 1px solid rgb(203 213 225);
+  border-radius: 6px;
+  background-color: white;
+  color: #0f172a;
+  box-shadow: 0 3px 12px rgb(15 23 42 / 18%);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.leaflet-tooltip-top {
+  margin-top: -6px;
+}
+
+.leaflet-tooltip-top::before {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-bottom: -12px;
+  margin-left: -6px;
+  border: 6px solid transparent;
+  border-top-color: white;
+  content: '';
+}
+
+.branch-marker {
+  display: block;
+  height: 14px;
+  width: 14px;
+  border: 2px solid white;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgb(15 23 42 / 25%);
+}
+
+.branch-marker--critical {
+  background: #dc2626;
+}
+
+.branch-marker--high {
+  background: #f59e0b;
+}
+
+.branch-marker--watch {
+  background: #0ea5e9;
+}
+
+.branch-marker--clear {
+  background: #10b981;
+}
+
+.branch-marker--selected {
+  height: 18px;
+  width: 18px;
+  border-width: 3px;
+  box-shadow:
+    0 0 0 5px rgb(15 23 42 / 14%),
+    0 4px 16px rgb(15 23 42 / 28%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
