@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'AVIS Weather Risk Monitor',
   description:
-    'City-level extreme weather warning dashboard for AVIS branch and risk teams.',
+    'Branch-level extreme weather warning dashboard for AVIS branch and risk teams.',
 };
 
 export default function RootLayout({

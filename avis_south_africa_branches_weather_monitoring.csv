@@ -1,0 +1,73 @@
+province,branch_name,latitude,longitude,coordinate_precision,country,coordinate_verified_exact_branch,notes
+Eastern Cape,East London Airport,-33.0356,27.8259,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Eastern Cape,East London Downtown,-32.967,27.943,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Eastern Cape,Jeffreys Bay,-34.0506,24.9216,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Eastern Cape,King Williamstown,-32.88,27.39,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Eastern Cape,Mthatha Airport,-31.5479,28.6743,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Eastern Cape,Port Alfred,-33.5906,26.891,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Eastern Cape,Port Elizabeth Airport,-33.9849,25.6173,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Eastern Cape,Port Elizabeth Downtown,-33.945,25.57,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Free State,Bethlehem,-28.2308,28.3071,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Free State,Bloemfontein Airport,-29.0927,26.3024,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Free State,Bloemfontein Downtown,-29.1183,26.214,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+Free State,Harrismith,-28.2728,29.1295,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Free State,Welkom,-27.9774,26.7351,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Gauteng,Centurion,-25.8622766,28.1920974,branch,South Africa,True,Published/search-derived branch coordinate; verify before operational use.
+Gauteng,Isando,-26.139,28.214,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Krugersdorp,-26.1,27.77,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Lanseria Airport,-25.9385,27.9261,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Gauteng,Menlyn,-25.77,28.27,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Mondeor,-26.268,28.0,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Montana,-25.67,28.25,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,OR Tambo Int Airport,-26.1337,28.242,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Gauteng,Pretoria,-25.7479,28.1879,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Soweto,-26.236,27.909,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Midrand Grand Central Airport,-25.9863,28.1401,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Gauteng,Sandton Gautrain,-26.1076,28.0567,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Sunninghill,-26.035,28.072,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+Gauteng,Vereeniging,-26.6731,27.9261,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Amanzimtoti,-30.0522,30.8853,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Ballito,-29.539,31.2144,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Durban Downtown,-29.8587,31.0218,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Empangeni,-28.7465,31.8933,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,King Shaka Int. Airport,-29.6144,31.1197,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+KwaZulu-Natal,Kokstad,-30.5472,29.4241,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Ladysmith,-28.5539,29.7789,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Margate,-30.8636,30.3705,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Newcastle,-27.7579,29.9318,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Pietermaritzburg,-29.6006,30.3794,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Pinetown,-29.8207,30.8867,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Richards Bay,-28.7807,32.0383,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Ulundi Airport,-28.3206,31.4165,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+KwaZulu-Natal,Umhlanga,-29.726,31.085,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+KwaZulu-Natal,Vryheid,-27.7695,30.7917,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Limpopo,Hoedspruit Eastgate Airport,-24.3686,31.0487,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Limpopo,Lephalale,-23.6667,27.7443,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Limpopo,Musina,-22.3488,30.0407,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Limpopo,Phalaborwa Airport,-23.9372,31.1554,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Limpopo,Polokwane,-23.9045,29.4689,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+Limpopo,Thohoyandou,-22.9456,30.4849,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Limpopo,Tzaneen,-23.8332,30.1635,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Mpumalanga,Emalahleni,-25.8713,29.2332,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+Mpumalanga,Kruger Mpumalanga Int Apt,-25.3832,31.1056,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Mpumalanga,Nelspruit Downtown,-25.4753,30.9694,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+Mpumalanga,Secunda,-26.55,29.1667,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Mpumalanga,Skukuza Airport,-24.9609,31.5887,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Mpumalanga,Skukuza Reception,-24.9958,31.5912,area,South Africa,False,Area-level coordinate; exact storefront pin still needs verification.
+Northern Cape,Kathu Sishen,-27.6957,23.0498,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Northern Cape,Kimberley Airport,-28.8028,24.7652,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Northern Cape,Upington Airport,-28.3991,21.2602,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+North West,Mmabatho Downtown,-25.85,25.6333,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+North West,Potchefstroom,-26.7145,27.097,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+North West,Rustenburg,-25.6676,27.2421,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+North West,Vryburg,-26.9566,24.7284,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Western Cape,Airport Industria,-33.97,18.59,area,South Africa,False,Area-level coordinate; exact storefront pin still needs verification.
+Western Cape,Cape Town Int Apt,-33.9715,18.6021,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Western Cape,Cape Town Downtown,-33.91788,18.41746,published-branch-coordinate,South Africa,True,Published GPS coordinate for the branch; verify before operational use.
+Western Cape,George Airport,-34.0056,22.3789,airport,South Africa,False,Airport coordinate; suitable for branch-at-airport weather monitoring.
+Western Cape,George Downtown,-33.963,22.4617,city-area,South Africa,False,City-level coordinate; exact storefront pin still needs verification.
+Western Cape,Mossel Bay,-34.1831,22.146,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Western Cape,Plettenberg Bay,-34.0527,23.3716,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Western Cape,Stellenbosch,-33.9321,18.8602,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Western Cape,Strand,-34.1069,18.8275,town-area,South Africa,False,Town-level coordinate; exact storefront pin still needs verification.
+Western Cape,Wynberg,-34.0048,18.468,branch-area,South Africa,False,Approximate branch-area coordinate; exact storefront pin still needs verification.
